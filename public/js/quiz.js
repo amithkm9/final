@@ -611,7 +611,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             console.log('Submitting quiz results:', quizData);
             
-            const response = await fetch(`http://localhost:4000/quizzes/${courseId}/${quizId}/attempts`, {
+            // Use relative URL to work in both development and production
+            const response = await fetch(`/api/quizzes/${courseId}/${quizId}/attempts`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(quizData)

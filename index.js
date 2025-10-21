@@ -260,6 +260,59 @@ app.post("/api/recognize", async (req, res) => {
     }
 });
 
+// ========== PROGRESS TRACKING API PROXIES ==========
+
+// Learning events endpoint
+app.post("/api/learning/events", async (req, res) => {
+    try {
+        const response = await axios.post(`${API_URL}/learning/events`, req.body, {
+            headers: { 'Content-Type': 'application/json' }
+        });
+        res.json(response.data);
+    } catch (error) {
+        console.error("Error forwarding learning event:", error.message);
+        res.status(500).json({ error: "Failed to record learning event" });
+    }
+});
+
+// Quiz attempts endpoint
+app.post("/api/quizzes/:courseId/:quizId/attempts", async (req, res) => {
+    try {
+        const { courseId, quizId } = req.params;
+        const response = await axios.post(`${API_URL}/quizzes/${courseId}/${quizId}/attempts`, req.body, {
+            headers: { 'Content-Type': 'application/json' }
+        });
+        res.json(response.data);
+    } catch (error) {
+        console.error("Error forwarding quiz attempt:", error.message);
+        res.status(500).json({ error: "Failed to record quiz attempt" });
+    }
+});
+
+// Analytics summary endpoint
+app.get("/api/analytics/summary/:userId", async (req, res) => {
+    try {
+        const { userId } = req.params;
+        const response = await axios.get(`${API_URL}/analytics/summary/${userId}`);
+        res.json(response.data);
+    } catch (error) {
+        console.error("Error fetching analytics:", error.message);
+        res.status(500).json({ error: "Failed to fetch analytics" });
+    }
+});
+
+// Admin learning events endpoint
+app.get("/api/admin/learning-events/:userId", async (req, res) => {
+    try {
+        const { userId } = req.params;
+        const response = await axios.get(`${API_URL}/admin/learning-events/${userId}`);
+        res.json(response.data);
+    } catch (error) {
+        console.error("Error fetching learning events:", error.message);
+        res.status(500).json({ error: "Failed to fetch learning events" });
+    }
+});
+
 // Existing routes for tutorials
 app.get("/tutorials/basics", async (req, res) => {
     try {

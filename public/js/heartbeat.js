@@ -34,7 +34,8 @@
                 activeMs: visible() ? delta : 0,
                 progressPercentage: typeof getProgress === 'function' ? getProgress() : undefined
             };
-            postJSON('http://localhost:4000/learning/events', payload);
+            // Use relative URL to work in both development and production
+            postJSON('/api/learning/events', payload);
         }
 
         // initial start
