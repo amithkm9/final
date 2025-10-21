@@ -4,16 +4,16 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebas
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
 
 
-// Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyA1ELcXA-sFGJxnGUJc6U3xgWeB4-f7nxY",
-    authDomain: "edusign-e315e.firebaseapp.com",
-    projectId: "edusign-e315e",
-    storageBucket: "edusign-e315e.firebasestorage.app",
-    messagingSenderId: "354617663673",
-    appId: "1:354617663673:web:d36a17e9ff19e2492f7b68",
-    measurementId: "G-XBT16KY57X"
-};
+//  Firebase configuration
+// const firebaseConfig = {
+//     //apiKey: "AIzaSyA1ELcXA-sFGJxnGUJc6U3xgWeB4-f7nxY",
+//     authDomain: "edusign-e315e.firebaseapp.com",
+//     projectId: "edusign-e315e",
+//     storageBucket: "edusign-e315e.firebasestorage.app",
+//     messagingSenderId: "354617663673",
+//     appId: "1:354617663673:web:d36a17e9ff19e2492f7b68",
+//     measurementId: "G-XBT16KY57X"
+// };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
