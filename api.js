@@ -759,6 +759,15 @@ app.post("/summarize", async (req, res) => {
     }
 });
 
+// Health check endpoint
+app.get("/health", (req, res) => {
+    res.json({ 
+        status: "healthy",
+        message: "API is running",
+        timestamp: new Date().toISOString()
+    });
+});
+
 app.listen(port, () => {
     console.log(`API is running at http://localhost:${port}`);
   });
